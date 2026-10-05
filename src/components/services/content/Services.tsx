@@ -9,6 +9,7 @@ import {
 } from 'react-intl';
 import withStyles, { type WithStylesProps } from 'react-jss';
 import { Link } from 'react-router-dom';
+import UnifiedInbox from '../../../features/unifiedInbox/Component';
 import type Service from '../../../models/Service';
 import Appear from '../../ui/effects/Appear';
 import ServiceView from './ServiceView';
@@ -108,7 +109,7 @@ class Services extends Component<IProps, IState> {
     const { showConfetti } = this.state;
 
     return (
-      <div className="services">
+      <div className="services" style={{ position: 'relative' }}>
         {userHasCompletedSignup && (
           <div className={classes.confettiContainer}>
             <Confetti
@@ -134,6 +135,7 @@ class Services extends Component<IProps, IState> {
             </div>
           </Appear>
         )}
+        <UnifiedInbox />
         {services
           .filter(service => !service.isTodosService)
           .map(service => (

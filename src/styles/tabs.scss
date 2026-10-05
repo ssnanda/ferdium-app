@@ -29,6 +29,13 @@
   }
 }
 
+// Unified Mailbox: mail services indented under the parent entry.
+.tabs.tabs--unified-children {
+  margin-left: 10px;
+  padding-left: 4px;
+  border-left: 3px solid #1a73e8;
+}
+
 .tab-item {
   align-items: center;
   box-sizing: border-box;

@@ -120,6 +120,10 @@ export const menuItems = defineMessages({
     id: 'menu.view.openQuickSwitch',
     defaultMessage: 'Open Quick Switch',
   },
+  openUnifiedInbox: {
+    id: 'menu.view.openUnifiedInbox',
+    defaultMessage: 'Open Unified Inbox',
+  },
   back: {
     id: 'menu.view.back',
     defaultMessage: 'Back',
@@ -442,6 +446,13 @@ function titleBarTemplateFactory(
           accelerator: `${cmdOrCtrlShortcutKey()}+S`,
           click() {
             window['ferdium'].features.quickSwitch.state.isModalVisible = true;
+          },
+        },
+        {
+          label: intl.formatMessage(menuItems.openUnifiedInbox),
+          accelerator: `${cmdOrCtrlShortcutKey()}+Shift+U`,
+          click() {
+            window['ferdium'].features.unifiedInbox.open();
           },
         },
         {

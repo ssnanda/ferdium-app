@@ -11,6 +11,9 @@ interface IProps {
   showMessageBadgesEvenWhenMuted: boolean;
   services: Service[];
   useHorizontalStyle: boolean;
+  listClassName?: string;
+  /** Position shown in tooltips/shortcuts; defaults to list position + 1. */
+  getShortcutIndex?: (service: Service, index: number) => number;
   setActive: (args: { serviceId: string }) => void;
   openSettings: (args: { path: string }) => void;
   reload: (args: { serviceId: string }) => void;
@@ -46,11 +49,13 @@ class TabBarSortableList extends Component<IProps> {
       showServiceNameSetting,
       showMessageBadgesEvenWhenMuted,
       useHorizontalStyle,
+      listClassName,
+      getShortcutIndex,
     } = this.props;
 
     return (
       <ul
-        className="tabs"
+        className={`tabs ${listClassName ?? ''}`}
         onWheel={event => {
           if (useHorizontalStyle) {
             const target = event.currentTarget;
@@ -68,7 +73,9 @@ class TabBarSortableList extends Component<IProps> {
             clickHandler={() => setActive({ serviceId: service.id })}
             service={service}
             index={index}
-            shortcutIndex={index + 1}
+            shortcutIndex={
+              getShortcutIndex ? getShortcutIndex(service, index) : index + 1
+            }
             reload={() => reload({ serviceId: service.id })}
             toggleNotifications={() =>
               toggleNotifications({ serviceId: service.id })

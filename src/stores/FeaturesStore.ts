@@ -15,6 +15,7 @@ import publishDebugInfo from '../features/publishDebugInfo';
 import quickSwitch from '../features/quickSwitch';
 import serviceProxy from '../features/serviceProxy';
 import todos from '../features/todos';
+import unifiedInbox from '../features/unifiedInbox';
 import workspaces from '../features/workspaces';
 import CachedRequest from './lib/CachedRequest';
 import TypedStore from './lib/TypedStore';
@@ -84,6 +85,7 @@ export default class FeaturesStore extends TypedStore {
     basicAuth();
     workspaces(this.stores, this.actions);
     quickSwitch();
+    unifiedInbox(this.stores);
     publishDebugInfo();
     communityRecipes(this.stores, this.actions);
     todos(this.stores, this.actions);

@@ -178,6 +178,7 @@
   "menu.view.lockFerdium": "Lock Ferdium",
   "menu.view.openProcessManager": "Open Process Manager",
   "menu.view.openQuickSwitch": "Open Quick Switch",
+  "menu.view.openUnifiedInbox": "Open Unified Inbox",
   "menu.view.reloadFerdium": "Reload Ferdium",
   "menu.view.reloadService": "Reload Service",
   "menu.view.reloadTodos": "Reload ToDos",
